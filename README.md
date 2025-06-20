@@ -54,8 +54,8 @@ A modern real-time chat application built with React, Node.js, Express, and Sock
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd <repository-name>
+git clone https://github.com/PLP-MERN-Stack-Development/week-5-web-sockets-assignment-mutheeEverlyn.git
+cd week-5-web-sockets-assignment-mutheeEverlyn
 ```
 
 2. Run the setup script to configure environment variables:
@@ -66,30 +66,30 @@ node setup.js
 3. Install server dependencies:
 ```bash
 cd server
-npm install
+pnpm install
 ```
 
 4. Install client dependencies:
 ```bash
 cd client
-npm install
+pnpm install
 ```
 
 5. Start the development servers:
 
 In the server directory:
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 In the client directory:
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 The application will be available at:
 - Frontend: http://localhost:5173
-- Backend: http://localhost:3000
+- Backend: http://localhost:5001
 
 ## Manual Environment Setup
 
@@ -97,16 +97,10 @@ If you prefer to set up the environment variables manually:
 
 1. Create a `.env` file in the server directory with:
 ```
-PORT=3000
+PORT=5001
 MONGODB_URI=mongodb://localhost:27017/chat-app
 JWT_SECRET=your-secret-key
 CLIENT_URL=http://localhost:5173
-```
-
-2. Create a `.env` file in the client directory with:
-```
-VITE_API_URL=http://localhost:3000
-VITE_SOCKET_URL=http://localhost:3000
 ```
 
 ## Usage

@@ -17,7 +17,7 @@ const Navbar = () => {
               <div className="size-9 rounded-lg bg-primary/10 flex items-center justify-center">
                 <MessageSquare className="w-5 h-5 text-primary" />
               </div>
-              <h1 className="text-lg font-bold">Chatty</h1>
+              <h1 className="text-lg font-bold">LiveChat</h1>
             </Link>
           </div>
 
@@ -44,6 +44,16 @@ const Navbar = () => {
                   <LogOut className="size-5" />
                   <span className="hidden sm:inline">Logout</span>
                 </button>
+              </>
+            )}
+            {!authUser && (
+              <>
+                <Link to="/login" className="btn btn-sm btn-primary">
+                  Login
+                </Link>
+                <Link to="/signup" className="btn btn-sm btn-outline-primary">
+                  Sign Up
+                </Link>
               </>
             )}
           </div>

@@ -21,7 +21,7 @@ const Sidebar = ({ rooms = [], onRoomSelect, onUserSelect, onCreateRoom, isLoadi
   if (isUsersLoading) return <SidebarSkeleton />;
 
   return (
-    <aside className="h-full w-20 lg:w-72 border-r border-base-300 flex flex-col transition-all duration-200">
+    <aside className="h-full w-20 lg:w-72 border-r border-base-300 flex flex-col transition-all duration-200 mt-16">
       {/* Tabs */}
       <div className="flex border-b border-base-300">
         <button

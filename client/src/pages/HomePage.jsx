@@ -67,30 +67,62 @@ const HomePage = () => {
   };
 
   return (
-    <div className="h-screen bg-base-200">
-      <div className="flex items-center justify-center pt-20 px-4">
-        <div className="bg-base-100 rounded-lg shadow-cl w-full max-w-6xl h-[calc(100vh-8rem)]">
-          <div className="flex h-full rounded-lg overflow-hidden">
-            <Sidebar 
-              rooms={rooms}
-              onRoomSelect={handleRoomSelect}
-              onUserSelect={handleUserSelect}
-              onCreateRoom={() => setShowCreateRoom(true)}
-              selectedRoom={selectedRoom}
-            />
-
-            {!selectedUser && !selectedRoom ? (
-              <NoChatSelected />
+    <div className="min-h-screen flex flex-col bg-base-200">
+      {authUser ? (
+        <div className="flex flex-1 h-[calc(100vh-4rem)] min-w-0">
+          <Sidebar
+            rooms={rooms}
+            onRoomSelect={handleRoomSelect}
+            onUserSelect={handleUserSelect}
+            onCreateRoom={() => setShowCreateRoom(true)}
+            isLoadingRooms={false}
+            selectedRoom={selectedRoom}
+          />
+          <div className="flex-1 min-w-0 flex">
+            {selectedUser || selectedRoom ? (
+              <ChatContainer selectedUser={selectedUser} selectedRoom={selectedRoom} />
             ) : (
-              <ChatContainer 
-                selectedUser={selectedUser}
-                selectedRoom={selectedRoom}
-              />
+              <NoChatSelected />
             )}
           </div>
         </div>
-      </div>
+      ) : (
+        <>
+          {/* Always-visible Hero Section */}
+          <header className="w-full bg-primary text-primary-content py-24 px-4 text-center shadow-md">
+            <h1 className="text-3xl md:text-4xl font-bold mb-2">Welcome to LiveChat 🚀</h1>
+            <p className="max-w-2xl mx-auto text-base md:text-lg opacity-90">
+              LiveChat is a real-time chat application where you can join rooms, chat with friends, send private messages, share files, and enjoy emoji-powered conversations. Experience seamless, responsive, and modern chat on any device!
+            </p>
+          </header>
 
+          {/* Features Section */}
+          <section className="w-full py-8 px-4 bg-base-100 border-b border-base-300">
+            <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+              <div className="p-4 rounded-lg shadow bg-base-200">
+                <h2 className="text-xl font-semibold mb-2">💬 Real-Time Messaging</h2>
+                <p className="text-base-content/70">Send and receive messages instantly in rooms or private chats.</p>
+              </div>
+              <div className="p-4 rounded-lg shadow bg-base-200">
+                <h2 className="text-xl font-semibold mb-2">📁 File & Emoji Sharing</h2>
+                <p className="text-base-content/70">Share files, images, and express yourself with emojis in every conversation.</p>
+              </div>
+              <div className="p-4 rounded-lg shadow bg-base-200">
+                <h2 className="text-xl font-semibold mb-2">🔔 Notifications & Status</h2>
+                <p className="text-base-content/70">Get notified of new messages, see who is online, and enjoy a modern chat experience.</p>
+              </div>
+            </div>
+          </section>
+
+          {/* Footer */}
+          <footer className="w-full bg-base-300 text-base-content py-4 text-center mt-8 border-t border-base-200">
+            <div className="max-w-2xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 px-4">
+              <span className="text-sm">&copy; {new Date().getFullYear()} Chatty. All rights reserved.</span>
+              <span className="text-xs opacity-70">Built for the Web Sockets Assignment | Powered by React, Node.js, and Socket.io</span>
+            </div>
+          </footer>
+        </>
+      )}
       {showCreateRoom && (
         <CreateRoomModal
           onClose={() => setShowCreateRoom(false)}

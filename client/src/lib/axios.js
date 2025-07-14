@@ -11,6 +11,14 @@ axiosInstance.interceptors.request.use(
     const authUser = JSON.parse(localStorage.getItem("authUser"));
     if (authUser?.token) {
       config.headers.Authorization = `Bearer ${authUser.token}`;
+      // Debug log: show the token being sent
+      if (import.meta.env.MODE === "development") {
+        console.log("Sending Authorization token:", authUser.token);
+      }
+    } else {
+      if (import.meta.env.MODE === "development") {
+        console.warn("No auth token found in localStorage");
+      }
     }
     return config;
   },

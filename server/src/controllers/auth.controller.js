@@ -87,17 +87,30 @@ export const logout = (req, res) => {
 
 export const updateProfile = async (req, res) => {
   try {
-    const { profilePic } = req.body;
     const userId = req.user._id;
+    const { fullName, email, profilePic } = req.body;
+    const updateFields = {};
 
-    if (!profilePic) {
-      return res.status(400).json({ message: "Profile pic is required" });
+    if (fullName) updateFields.fullName = fullName;
+    if (email) updateFields.email = email;
+
+    if (profilePic) {
+      try {
+        const uploadResponse = await cloudinary.uploader.upload(profilePic);
+        updateFields.profilePic = uploadResponse.secure_url;
+      } catch (cloudErr) {
+        console.log("Cloudinary upload error:", cloudErr);
+        return res.status(500).json({ message: "Failed to upload profile image" });
+      }
     }
 
-    const uploadResponse = await cloudinary.uploader.upload(profilePic);
+    if (Object.keys(updateFields).length === 0) {
+      return res.status(400).json({ message: "No valid fields to update" });
+    }
+
     const updatedUser = await User.findByIdAndUpdate(
       userId,
-      { profilePic: uploadResponse.secure_url },
+      updateFields,
       { new: true }
     );
 

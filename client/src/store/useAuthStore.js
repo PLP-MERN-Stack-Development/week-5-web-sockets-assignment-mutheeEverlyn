@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { axiosInstance } from "../lib/axios.js";
 import toast from "react-hot-toast";
 import { io } from "socket.io-client";
+import { useChatStore } from "./useChatStore";
 
 const BASE_URL = import.meta.env.MODE === "development" ? "http://localhost:5001" : "/";
 
@@ -83,6 +84,10 @@ export const useAuthStore = create((set, get) => ({
       localStorage.setItem("authUser", JSON.stringify(userData));
       set({ authUser: userData });
       toast.success("Profile updated successfully");
+      // Refresh users list so updated profilePic shows everywhere
+      try {
+        useChatStore.getState().getUsers();
+      } catch (e) { /* ignore */ }
     } catch (error) {
       console.log("error in update profile:", error);
       toast.error(error.response.data.message);

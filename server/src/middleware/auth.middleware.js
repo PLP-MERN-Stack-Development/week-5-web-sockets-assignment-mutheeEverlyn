@@ -3,6 +3,9 @@ import User from "../models/user.model.js";
 
 export const protectRoute = async (req, res, next) => {
   try {
+    // Debug: log incoming headers and cookies
+    console.log("protectRoute: req.headers.authorization:", req.headers.authorization);
+    console.log("protectRoute: req.cookies:", req.cookies);
     let token;
 
     // Check Authorization header first

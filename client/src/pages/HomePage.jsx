@@ -17,6 +17,17 @@ const HomePage = () => {
   const [selectedRoom, setSelectedRoom] = useState(null);
 
   useEffect(() => {
+    // Debug log: show current authUser and token
+    if (import.meta.env.MODE === "development") {
+      const authUserLS = JSON.parse(localStorage.getItem("authUser"));
+      console.log("authUser from store:", authUser);
+      console.log("authUser from localStorage:", authUserLS);
+      if (authUserLS?.token) {
+        console.log("Token in localStorage:", authUserLS.token);
+      } else {
+        console.warn("No token in localStorage");
+      }
+    }
     const fetchRooms = async () => {
       try {
         const res = await axiosInstance.get("/rooms");
@@ -88,6 +99,12 @@ const HomePage = () => {
         </div>
       ) : (
         <>
+          {/* Not authenticated: show a message or redirect */}
+          <div className="flex flex-col items-center justify-center min-h-[60vh]">
+            <h2 className="text-2xl font-bold mb-4">You are not logged in</h2>
+            <p className="mb-4">Please log in to access the chat features.</p>
+            {/* Optionally, add a login button or redirect here */}
+          </div>
           {/* Always-visible Hero Section */}
           <header className="w-full bg-primary text-primary-content py-24 px-4 text-center shadow-md">
             <h1 className="text-3xl md:text-4xl font-bold mb-2">Welcome to LiveChat 🚀</h1>

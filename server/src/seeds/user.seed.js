@@ -7,97 +7,48 @@ config();
 const seedUsers = [
   // Female Users
   {
-    email: "emma.thompson@example.com",
-    fullName: "Emma Thompson",
+    email: "emma@example.com",
+    fullName: "Emma Theuri",
     password: "123456",
     profilePic: "https://randomuser.me/api/portraits/women/1.jpg",
   },
   {
-    email: "olivia.miller@example.com",
-    fullName: "Olivia Miller",
+    email: "olivia@example.com",
+    fullName: "Olivia kamau",
     password: "123456",
     profilePic: "https://randomuser.me/api/portraits/women/2.jpg",
   },
   {
-    email: "sophia.davis@example.com",
-    fullName: "Sophia Davis",
+    email: "sophia@example.com",
+    fullName: "Sophia Otieno",
     password: "123456",
     profilePic: "https://randomuser.me/api/portraits/women/3.jpg",
   },
   {
-    email: "ava.wilson@example.com",
-    fullName: "Ava Wilson",
-    password: "123456",
-    profilePic: "https://randomuser.me/api/portraits/women/4.jpg",
-  },
-  {
-    email: "isabella.brown@example.com",
-    fullName: "Isabella Brown",
-    password: "123456",
-    profilePic: "https://randomuser.me/api/portraits/women/5.jpg",
-  },
-  {
-    email: "mia.johnson@example.com",
-    fullName: "Mia Johnson",
-    password: "123456",
-    profilePic: "https://randomuser.me/api/portraits/women/6.jpg",
-  },
-  {
-    email: "charlotte.williams@example.com",
-    fullName: "Charlotte Williams",
-    password: "123456",
-    profilePic: "https://randomuser.me/api/portraits/women/7.jpg",
-  },
-  {
-    email: "amelia.garcia@example.com",
-    fullName: "Amelia Garcia",
-    password: "123456",
-    profilePic: "https://randomuser.me/api/portraits/women/8.jpg",
-  },
-
-  // Male Users
-  {
-    email: "james.anderson@example.com",
-    fullName: "James Anderson",
-    password: "123456",
-    profilePic: "https://randomuser.me/api/portraits/men/1.jpg",
-  },
-  {
-    email: "william.clark@example.com",
-    fullName: "William Clark",
-    password: "123456",
-    profilePic: "https://randomuser.me/api/portraits/men/2.jpg",
-  },
-  {
-    email: "benjamin.taylor@example.com",
-    fullName: "Benjamin Taylor",
-    password: "123456",
-    profilePic: "https://randomuser.me/api/portraits/men/3.jpg",
-  },
-  {
-    email: "lucas.moore@example.com",
-    fullName: "Lucas Moore",
+    email: "wilson@example.com",
+    fullName: "Wilson Muthee",
     password: "123456",
     profilePic: "https://randomuser.me/api/portraits/men/4.jpg",
   },
   {
-    email: "henry.jackson@example.com",
-    fullName: "Henry Jackson",
+    email: "brian@example.com",
+    fullName: "Brian Mwangi",
     password: "123456",
     profilePic: "https://randomuser.me/api/portraits/men/5.jpg",
   },
   {
-    email: "alexander.martin@example.com",
-    fullName: "Alexander Martin",
+    email: "john@example.com",
+    fullName: "John lemayan",
     password: "123456",
     profilePic: "https://randomuser.me/api/portraits/men/6.jpg",
   },
   {
-    email: "daniel.rodriguez@example.com",
-    fullName: "Daniel Rodriguez",
+    email: "williams@example.com",
+    fullName: "Williams Wambua",
     password: "123456",
     profilePic: "https://randomuser.me/api/portraits/men/7.jpg",
   },
+ 
 ];
 
 const seedDatabase = async () => {

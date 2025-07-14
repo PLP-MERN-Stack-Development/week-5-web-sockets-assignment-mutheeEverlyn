@@ -10,7 +10,8 @@ let io;
 export function initializeSocket(httpServer) {
   io = new Server(httpServer, {
     cors: {
-      origin: "http://localhost:5173",
+      origin: ["http://localhost:5173",
+      "https://week-5-web-sockets-assignment-muthe.vercel.app"],
       credentials: true,
     },
   });

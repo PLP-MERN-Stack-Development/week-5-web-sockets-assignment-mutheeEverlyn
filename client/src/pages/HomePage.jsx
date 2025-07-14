@@ -134,7 +134,7 @@ const HomePage = () => {
           {/* Footer */}
           <footer className="w-full bg-base-300 text-base-content py-4 text-center mt-8 border-t border-base-200">
             <div className="max-w-2xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 px-4">
-              <span className="text-sm">&copy; {new Date().getFullYear()} Chatty. All rights reserved.</span>
+              <span className="text-sm">&copy; {new Date().getFullYear()} LiveChat. All rights reserved.</span>
               <span className="text-xs opacity-70">Built for the Web Sockets Assignment | Powered by React, Node.js, and Socket.io</span>
             </div>
           </footer>

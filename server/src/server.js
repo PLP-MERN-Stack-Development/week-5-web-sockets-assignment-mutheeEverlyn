@@ -22,7 +22,7 @@ const __dirname = path.dirname(__filename);
 // Middleware
 // CORS middleware: allows credentials and sets correct origin for frontend
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: "https://week-5-web-sockets-assignment-muthe.vercel.app",
   credentials: true,
 }));
 // Increase body size limit for image uploads
